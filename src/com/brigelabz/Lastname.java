@@ -2,21 +2,22 @@ package com.brigelabz;
 
 import java.util.regex.Pattern;
 @FunctionalInterface
-interface MobileNumber {
-    void validUser(String mobileNumber);
+interface PasswordRule1 {
+    void validUser(String password);
 }
- class RegexLambdaExpression {
+
+class RegexLambdaExpression {
 
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration program");
-        MobileNumber function = (mobileNumber)->{
-            boolean check = Pattern.matches("^[0-9]{2}\\s[0-9]{10}$",mobileNumber);
+        PasswordRule1 function = (password)->{
+            boolean check = Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&]).{8,}$",password);
             if (check == true) {
-                System.out.println("Mobile number is Valid");
+                System.out.println("Password is Valid");
             }else
-                System.out.println("Enter valid mobile number");
+                System.out.println("Enter valid password");
         };
-        function.validUser("91 999999000");
+        function.validUser("Praju@123");
     }
 }
 
