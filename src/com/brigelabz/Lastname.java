@@ -2,13 +2,13 @@ package com.brigelabz;
 
 import java.util.regex.Pattern;
 @FunctionalInterface
-interface PasswordRule4 {
+interface PasswordRule {
     void validUser(String password);
 }
  class RegexLambdaExpression {
 
     public static void main(String[] args) {
-        PasswordRule4 function = (password)->{
+        PasswordRule function = (password)->{
             boolean check = Pattern.matches("^(?=.*[0-9]{1,})(?=.*[a-z])(?=.*[A-Z]){1,}(?=.*[*.!@$%^&]).{8,}$",password);
             if (check == true) {
                 System.out.println("Password is Valid");
